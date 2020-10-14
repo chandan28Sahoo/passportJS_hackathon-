@@ -1,6 +1,5 @@
 require('dotenv').config();
 const express = require('express');
-const path = require('path');
 const app = express();
 const router = express.Router();
 const log = console.log;
@@ -24,17 +23,6 @@ const auth = require('./authenticate/authenticateGoogle.js');
 const auth1 = require('./authenticate/authenticateFacebook.js');
 const auth2 = require('./authenticate/authenticateGitHub.js');
 const auth3 = require('./authenticate/authenticateLinkedIN.js');
-
-const viewPath = path.join(__dirname, '../views');
-
-app.set('view engine', 'ejs');
-app.set('views', viewPath);
-app.use(express.urlencoded({ extended: false }))
-
-// app.get('/login', (req, res) => {
-//     res.render('index')
-// })
-
 
 // google
 app.use('/login', router)
